@@ -102,7 +102,8 @@ class FrameWithLiDAR:
         # get lidar points here
         if self.online:
             detections_3d = self.detector_3d.make_prediction(self.velo_file).cpu().numpy()
-        else:
+        else: # offline reach here
+            print("[pydebug] offline detect mode\t")
             label_path_3d = os.path.join(self.lbl3d_dir,  "%06d.lbl" % self.frame_id)
             detections_3d = torch.load(label_path_3d)
         t2 = get_time()

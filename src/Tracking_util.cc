@@ -173,7 +173,9 @@ void Tracking::GetObjectDetectionsMono(KeyFrame *pKF)
     {
         auto det = new ObjectDetection();
         auto py_det = detections[detected_idx];
+        // cout << "[debug]: py_det = detections" << endl << endl; 目前kitti 不含background_rays这个属性
         det->background_rays = py_det.attr("background_rays").cast<Eigen::MatrixXf>();
+        // cout << "[debug]: py_det.attr(background_rays)" << endl << endl;
         auto mask = py_det.attr("mask").cast<Eigen::MatrixXf>();
         cv::Mat mask_cv;
         cv::eigen2cv(mask, mask_cv);

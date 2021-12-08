@@ -99,6 +99,13 @@ cmake -DPYTHON_LIBRARIES={YOUR_PYTHON_LIBRARY_PATH} \
 make -j8
 ```
 
+for my PC, to render online:
+```
+export MESA_GL_VERSION_OVERRIDE=3.3
+```
+or add to ~/.bashrc.sh.
+
+
 After successfully building DSP-SLAM, you will have **libDSP-SLAM.so**  at *lib* folder and the executables **dsp_slam** and **dsp_slam_mono** under project root directory.
 
 # 3. Running DSP-SLAM

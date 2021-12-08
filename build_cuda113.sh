@@ -41,11 +41,11 @@ echo "Available parameters:
         --build-dependencies
         --create-conda-env"
 
-highlight "Installing system-wise packages ..."
-sudo apt-get update > /dev/null 2>&1 &&
-sudo apt -y install gcc-8 g++-8 # gcc-8 is a safe version 
-sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 8
-sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-8 8
+# highlight "Installing system-wise packages ..."
+# sudo apt-get update > /dev/null 2>&1 &&
+# sudo apt -y install gcc-8 g++-8 # gcc-8 is a safe version 
+# sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 8
+# sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-8 8
 sudo apt-get install -y \
   libglew-dev \
   pkg-config \
@@ -65,78 +65,78 @@ export PATH=/usr/local/cuda-11.3/bin:$PATH
 export LD_LIBRARY_PATH=/usr/local/cuda-11.3/lib64:$LD_LIBRARY_PATH
 
 if [[ $* == *--build-dependencies* ]]; then
-  highlight "Installing OpenCV ..."
+  # highlight "Installing OpenCV ..."
   cd Thirdparty
-  git_clone "git clone --branch 3.4.1 --depth=1 https://github.com/opencv/opencv.git"
+  # git_clone "git clone --branch 3.4.1 --depth=1 git@github.com:opencv/opencv.git"
   cd opencv
-  if [ ! -d build ]; then
-    mkdir build
-  fi
+  # if [ ! -d build ]; then
+  #   mkdir build
+  # fi
   cd build
-  cmake \
-      -DCMAKE_BUILD_TYPE=Release \
-      -DWITH_CUDA=OFF  \
-      -DBUILD_DOCS=OFF  \
-      -DBUILD_PACKAGE=OFF \
-      -DBUILD_TESTS=OFF  \
-      -DBUILD_PERF_TESTS=OFF  \
-      -DBUILD_opencv_apps=OFF \
-      -DBUILD_opencv_calib3d=ON  \
-      -DBUILD_opencv_cudaoptflow=OFF  \
-      -DBUILD_opencv_dnn=OFF  \
-      -DBUILD_opencv_dnn_BUILD_TORCH_IMPORTER=OFF  \
-      -DBUILD_opencv_features2d=ON \
-      -DBUILD_opencv_flann=ON \
-      -DBUILD_opencv_java=ON  \
-      -DBUILD_opencv_objdetect=ON  \
-      -DBUILD_opencv_python2=OFF  \
-      -DBUILD_opencv_python3=OFF  \
-      -DBUILD_opencv_photo=ON \
-      -DBUILD_opencv_stitching=ON  \
-      -DBUILD_opencv_superres=ON  \
-      -DBUILD_opencv_shape=ON  \
-      -DBUILD_opencv_videostab=OFF \
-      -DBUILD_PROTOBUF=OFF \
-      -DWITH_1394=OFF  \
-      -DWITH_GSTREAMER=OFF  \
-      -DWITH_GPHOTO2=OFF  \
-      -DWITH_MATLAB=OFF  \
-      -DWITH_NVCUVID=OFF \
-      -DWITH_OPENCL=OFF \
-      -DWITH_OPENCLAMDBLAS=OFF \
-      -DWITH_OPENCLAMDFFT=OFF \
-      -DWITH_TIFF=OFF  \
-      -DWITH_VTK=OFF  \
-      -DWITH_WEBP=OFF  \
-      ..
-  make -j8
+  # cmake \
+  #     -DCMAKE_BUILD_TYPE=Release \
+  #     -DWITH_CUDA=OFF  \
+  #     -DBUILD_DOCS=OFF  \
+  #     -DBUILD_PACKAGE=OFF \
+  #     -DBUILD_TESTS=OFF  \
+  #     -DBUILD_PERF_TESTS=OFF  \
+  #     -DBUILD_opencv_apps=OFF \
+  #     -DBUILD_opencv_calib3d=ON  \
+  #     -DBUILD_opencv_cudaoptflow=OFF  \
+  #     -DBUILD_opencv_dnn=OFF  \
+  #     -DBUILD_opencv_dnn_BUILD_TORCH_IMPORTER=OFF  \
+  #     -DBUILD_opencv_features2d=ON \
+  #     -DBUILD_opencv_flann=ON \
+  #     -DBUILD_opencv_java=ON  \
+  #     -DBUILD_opencv_objdetect=ON  \
+  #     -DBUILD_opencv_python2=OFF  \
+  #     -DBUILD_opencv_python3=OFF  \
+  #     -DBUILD_opencv_photo=ON \
+  #     -DBUILD_opencv_stitching=ON  \
+  #     -DBUILD_opencv_superres=ON  \
+  #     -DBUILD_opencv_shape=ON  \
+  #     -DBUILD_opencv_videostab=OFF \
+  #     -DBUILD_PROTOBUF=OFF \
+  #     -DWITH_1394=OFF  \
+  #     -DWITH_GSTREAMER=OFF  \
+  #     -DWITH_GPHOTO2=OFF  \
+  #     -DWITH_MATLAB=OFF  \
+  #     -DWITH_NVCUVID=OFF \
+  #     -DWITH_OPENCL=OFF \
+  #     -DWITH_OPENCLAMDBLAS=OFF \
+  #     -DWITH_OPENCLAMDFFT=OFF \
+  #     -DWITH_TIFF=OFF  \
+  #     -DWITH_VTK=OFF  \
+  #     -DWITH_WEBP=OFF  \
+  #     ..
+  # make -j20
   OpenCV_DIR=$(pwd)
   cd ../..
 
-  highlight "Installing Eigen3 ..."
-  git_clone "git clone --branch=3.4.0 --depth=1 https://gitlab.com/libeigen/eigen.git"
-  cd eigen
-  if [ ! -d build ]; then
-    mkdir build
-  fi
-  if [ ! -d install ]; then
-    mkdir install
-  fi
-  cd build
-  cmake -DCMAKE_INSTALL_PREFIX="$(pwd)/../install" ..
-  make -j8
-  make install
-  cd ../..
+  # highlight "Installing Eigen3 ..."
+  # git_clone "git clone --branch=3.4.0 --depth=1 https://gitlab.com/libeigen/eigen.git"
+  # cd eigen
+  # if [ ! -d build ]; then
+  #   mkdir build
+  # fi
+  # if [ ! -d install ]; then
+  #   mkdir install
+  # fi
+  # cd build
+  # cmake -DCMAKE_INSTALL_PREFIX="$(pwd)/../install" ..
+  # make -j20
+  # make install
+  # cd ../..
 
   highlight "Installing Pangolin ..."
-  git_clone "git clone --recursive --depth=1 https://github.com/stevenlovegrove/Pangolin.git"
+  # git_clone "git clone --recursive --depth=1 git@github.com:stevenlovegrove/Pangolin.git"
   cd Pangolin
   if [ ! -d build ]; then
     mkdir build
   fi
   cd build
   cmake ..
-  make -j8
+  make -j20
   Pangolin_DIR=$(pwd)
   cd ../..
 
@@ -147,7 +147,7 @@ highlight "Installing g2o ..."
   fi
   cd build
   cmake -DEigen3_DIR="$(pwd)/../../eigen/install/share/eigen3/cmake" ..
-  make -j8
+  make -j20
   cd ../..
 
   highlight "Installing DBoW2 ..."
@@ -157,7 +157,7 @@ highlight "Installing g2o ..."
   fi
   cd build
   cmake -DOpenCV_DIR=$OpenCV_DIR ..
-  make -j8
+  make -j20
   cd ../../..
 fi # --build-dependencies
 
@@ -176,7 +176,7 @@ pip install mmcv-full -f https://download.openmmlab.com/mmcv/dist/cu113/torch1.1
 pip install mmdet==2.14.0
 pip install mmsegmentation==0.14.1
 cd Thirdparty
-git_clone "git clone https://github.com/open-mmlab/mmdetection3d.git"
+git_clone "git clone git@github.com:open-mmlab/mmdetection3d.git"
 cd mmdetection3d
 pip install -v -e .
 cd ../..
@@ -196,5 +196,5 @@ cmake \
   -DPYTHON_INCLUDE_DIRS="$conda_env_dir/include/python3.7m" \
   -DPYTHON_EXECUTABLE="$conda_env_dir/bin/python3.7" \
   ..
-make -j8
+make -j20
 

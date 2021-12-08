@@ -2,7 +2,7 @@ CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
 SET(CMAKE_LEGACY_CYGWIN_WIN32 0)
 
 PROJECT(g2o)
-
+add_definitions(-w)
 # c++ version
 set(CMAKE_CXX_STANDARD 17)
 

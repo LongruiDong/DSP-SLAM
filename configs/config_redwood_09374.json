@@ -1,16 +1,16 @@
 {
   "data_type": "Redwood",
   "detect_online": true,
-  "path_label_2d": "/media/jingwen/Data/Redwood/09374/detections/labels",
+  "path_label_2d": "/media/dsp-slam/data/redwood/09374/detections/labels",
   "Detector2D": {
     "config_path": "configs/config_maskrcnn.py",
-    "weight_path": "weights/maskrcnn/model.pth"
+    "weight_path": "/media/dsp-slam/weights/maskrcnn/model.pth"
   },
   "slam_config_path": "configs/redwood_09374.yaml",
   "min_bb_area": 1600,
   "min_mask_area": 1000,
   "downsample_ratio": 4.0,
-  "DeepSDF_DIR": "weights/deepsdf/chairs_64",
+  "DeepSDF_DIR": "/media/dsp-slam/weights/deepsdf/chairs_64",
   "voxels_dim": 64,
   "optimizer": {
     "code_len": 64,

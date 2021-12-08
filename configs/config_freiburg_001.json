@@ -4,13 +4,13 @@
   "path_label_2d": "/media/jingwen/Data/freiburg_cars/freiburg_static_car_vids/Cars/Car001/detections/labels",
   "Detector2D": {
     "config_path": "configs/config_maskrcnn.py",
-    "weight_path": "weights/maskrcnn/model.pth"
+    "weight_path": "/media/dsp-slam/weights/maskrcnn/model.pth"
   },
   "slam_config_path": "configs/freiburg_001.yaml",
   "min_bb_area": 1600,
   "min_mask_area": 1000,
   "downsample_ratio": 4.0,
-  "DeepSDF_DIR": "weights/deepsdf/cars_64",
+  "DeepSDF_DIR": "/media/dsp-slam/weights/deepsdf/cars_64",
   "voxels_dim": 64,
   "optimizer": {
     "code_len": 64,

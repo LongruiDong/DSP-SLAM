@@ -1,22 +1,22 @@
 {
   "data_type": "KITTI",
   "detect_online": true,
-  "path_label_3d": "/media/jingwen/Data/kitti_odom/dataset/sequences/07/labels/pointpillars_labels",
-  "path_label_2d": "/media/jingwen/Data/kitti_odom/dataset/sequences/07/labels/maskrcnn_labels",
+  "path_label_3d": "/media/dsp-slam/data/kitti/07/labels/pointpillars_labels",
+  "path_label_2d": "/media/dsp-slam/data/kitti/07/labels/maskrcnn_labels",
   "Detector3D": {
     "config_path": "configs/config_pointpillars.py",
-    "weight_path": "weights/pointpillars/model.pth"
+    "weight_path": "/media/dsp-slam/weights/pointpillars/model.pth"
   },
   "Detector2D": {
     "config_path": "configs/config_maskrcnn.py",
-    "weight_path": "weights/maskrcnn/model.pth"
+    "weight_path": "/media/dsp-slam/weights/maskrcnn/model.pth"
   },
   "min_bb_area": 1600,
   "min_mask_area": 1000,
   "downsample_ratio": 4.0,
   "num_lidar_max": 250,
   "num_lidar_min": 10,
-  "DeepSDF_DIR": "weights/deepsdf/cars_64",
+  "DeepSDF_DIR": "/media/dsp-slam/weights/deepsdf/cars_64",
   "voxels_dim": 32,
   "optimizer": {
     "code_len": 64,
